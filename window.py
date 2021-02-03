@@ -42,7 +42,7 @@ class Window:
             if unit in self.unit_options:
                 height_str = f"{self.text_box.get()}{self.menu.get()}"
                 self.result_win = Window(300, 200, "Results",
-                                         f"Your height is: {height_str}", False)
+                                         f"You are {height_str} tall", False)
                 self.result_win.create_widgets()
                 self.result_win.run()
 
