@@ -10,12 +10,13 @@ class Window:
         self.root = tk.Tk()
         self.root.geometry(f"{height}x{length}")
         self.root.title = title
+        self._create_widgets()
 
-    def create_widgets(self):
+    def _create_widgets(self):
         title_widget = tk.Label(self.root, text="Height Calulator")
         other_text = tk.Label(self.root, text=self.other_text)
         if self.submit:
-            self.unit_options = ["cm", "in"]
+            self.unit_options = ["centimeter", "bloit", "megalithic yard"]
             self.menu = tk.StringVar(self.root)
             self.menu.set("Choose units")
             self.unit_selector = tk.OptionMenu(
@@ -40,10 +41,11 @@ class Window:
         else:
             unit = self.menu.get()
             if unit in self.unit_options:
-                height_str = f"{self.text_box.get()}{self.menu.get()}"
+                height_str = f"{str(height)} {self.menu.get()}"
+                if height != 1:
+                    height_str += "s"
                 self.result_win = Window(300, 200, "Results",
                                          f"You are {height_str} tall", False)
-                self.result_win.create_widgets()
                 self.result_win.run()
 
     def run(self):
