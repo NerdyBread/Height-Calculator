@@ -39,5 +39,5 @@ class CLI:
 
 
 if __name__ == "__main__":
-	cli = CLI(print) # main method should go here
+	cli = CLI(print) # Test run
 	cli.startMsg()
